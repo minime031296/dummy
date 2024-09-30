@@ -14,16 +14,16 @@ app.use(express.urlencoded({extended: true}))
 //cors middleware
 
 const corsOption = {
-    origin: ['https://dummy-amber.vercel.app', 'https://vistaar-webx.vercel.app'],
+    origin: ['*'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
 app.use(cors(corsOption))
 
-//app.use((req, res, next) => {
-//    console.log(`Received request: ${req.method} ${req.url}`);
-//    next();
-//});
+app.use((req, res, next) => {
+   console.log(`Received request: ${req.method} ${req.url}`);
+   next();
+});
 
 
 //user Routes
